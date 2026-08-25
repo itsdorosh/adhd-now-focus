@@ -1,0 +1,200 @@
+:root {
+  --stage-bg: #111114;
+  --stage-text: #f5f5f7;
+}
+
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Stage */
+
+.stage {
+  position: absolute;
+  inset: 0;
+  background: var(--stage-bg);
+  overflow: hidden;
+}
+
+.stage__fill {
+  position: absolute;
+  inset: 0;
+  transition:
+    width 1s linear,
+    background-color 0.6s ease;
+}
+
+.stage__caption {
+  position: absolute;
+  inset: 0;
+}
+
+.stage__caption-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 2vh, 20px);
+  padding: 5vw;
+  text-align: center;
+  color: var(--stage-text);
+}
+
+.stage__caption-layer--fill {
+  transition: clip-path 1s linear;
+}
+
+.stage__title {
+  margin: 0;
+  font-size: clamp(2.5rem, 10vw, 8rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.stage__subtitle {
+  margin: 0;
+  font-size: clamp(1rem, 2.5vw, 1.75rem);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+
+/* Corner menu */
+
+.corner-menu {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.12;
+  transition: opacity 0.2s ease;
+}
+
+.corner-menu:hover,
+.corner-menu:focus-within {
+  opacity: 1;
+}
+
+.corner-menu__filename {
+  max-width: 220px;
+  overflow: hidden;
+  color: var(--stage-text);
+  font-size: 0.75rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+.corner-menu button {
+  cursor: pointer;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--stage-text);
+  font-size: 0.8rem;
+  backdrop-filter: blur(6px);
+  transition: background 0.15s ease;
+}
+
+.corner-menu button:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Drop hint (shown while dragging a file over an already-loaded stage) */
+
+.app__drop-hint {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+
+.app__drop-hint p {
+  padding: 24px 48px;
+  border: 2px dashed rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/* Drop zone (empty / error state) */
+
+.drop-zone {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--stage-bg);
+  text-align: center;
+  transition: background 0.15s ease;
+}
+
+.drop-zone--active {
+  background: #1c1c22;
+}
+
+.drop-zone__panel {
+  display: flex;
+  max-width: 480px;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: var(--stage-text);
+}
+
+.drop-zone__panel h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+}
+
+.drop-zone__panel p {
+  margin: 0;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.drop-zone__hint {
+  font-size: 0.85rem;
+  opacity: 0.5;
+}
+
+.drop-zone__error {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.drop-zone__panel button {
+  margin-top: 4px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  background: var(--stage-text);
+  color: #111;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.drop-zone__panel button:hover {
+  background: #fff;
+  transform: translateY(-1px);
+}
