@@ -179,6 +179,19 @@
   font-weight: 600;
 }
 
+.drop-zone__example-link {
+  margin-top: 8px;
+  color: var(--stage-text);
+  font-size: 0.85rem;
+  opacity: 0.6;
+  text-decoration: underline;
+  transition: opacity 0.15s ease;
+}
+
+.drop-zone__example-link:hover {
+  opacity: 1;
+}
+
 .drop-zone__panel button {
   margin-top: 4px;
   padding: 12px 28px;

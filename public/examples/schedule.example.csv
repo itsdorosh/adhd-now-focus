@@ -1,0 +1,10 @@
+name,start,end,color
+Sleep,23:00,07:00,#3B4252
+Morning Routine,07:00,08:00,#88C0D0
+Work,08:00,12:00,#5E81AC
+Lunch,12:00,13:00,#A3BE8C
+Work,13:00,17:00,#5E81AC
+Exercise,17:00,18:00,#D08770
+Dinner,18:00,19:00,#A3BE8C
+Free Time,19:00,22:00,#B48EAD
+Wind Down,22:00,23:00,#4C566A

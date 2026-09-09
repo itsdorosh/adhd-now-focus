@@ -42,6 +42,13 @@ export function DropZone({ error, isDraggingOver, onFile, onDragStateChange }: D
         </button>
         <p className="drop-zone__hint">Accepts .csv, .json, .yaml, or .yml</p>
         {error && <p className="drop-zone__error">{error}</p>}
+        <a
+          className="drop-zone__example-link"
+          href={`${import.meta.env.BASE_URL}examples/schedule.example.csv`}
+          download
+        >
+          Download an example file
+        </a>
         <input
           ref={inputRef}
           type="file"
